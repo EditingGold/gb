@@ -1631,7 +1631,8 @@ GB_STATIC_ASSERT(GB_ARRAY_GROW_FORMULA(0) > 0);
 	void **gb__array_ = cast(void **)&(x); \
 	gbArrayHeader *gb__ah = cast(gbArrayHeader *)gb_alloc(allocator_, gb_size_of(gbArrayHeader)+gb_size_of(*(x))*(cap)); \
 	gb__ah->allocator = allocator_; \
-	gb__ah->count = gb__ah->capacity = 0; \
+	gb__ah->count = 0; \
+	gb__ah->capacity = cap; \
 	*gb__array_ = cast(void *)(gb__ah+1); \
 } while (0)
 
